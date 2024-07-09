@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AADI ASSIGNMENT</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '1183818856132522',
+        cookie: true,
+        xfbml: true,
+        version: 'v20.0'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    FB.getLoginStatus(function (response) {
+      statusChangeCallback(response);
+    });
+
+
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+    }
+  </script>
+</body>
+
+</html>
